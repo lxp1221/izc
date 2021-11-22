@@ -40,27 +40,7 @@ def tianbiao(stuID):
     driver = webdriver.Chrome(chrome_options=chrome_options,executable_path=chromedriver)
 
     try:
-        # 表单地址
-        url = 'http://dw10.fdzcxy.edu.cn/datawarn/ReportServer?formlet=app/sjkrb.frm&op=h5&userno=' + stuID + '#/form'
-        driver.get(url)  # 打开浏览器
-        time.sleep(1)
-
-        driver.maximize_window()  # 全屏
-        time.sleep(5)
-
-        # 滚动到底部
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
-        # 确认
-        driver.find_element_by_xpath('//input[@type="checkbox"]').click()
-        time.sleep(1)
-
-        # 点击提交
-        driver.find_element_by_xpath('//div[@id="SUBMIT"]').click()
-        time.sleep(2)
-
-        driver.quit()
-        message(api_key, "打卡成功")
+       message(api_key,stuID)
     except:
         message(api_key, "打卡失败")
 
